@@ -71,7 +71,7 @@ void MH871::startPlot(ofVec2f pt){
     cache.push_back("PD;");
 }
 
-void MH871::initCut(){
+void MH871::initPlotter(){
     sendCommand("IN;");
 }
 

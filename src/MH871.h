@@ -17,7 +17,7 @@ public:
     void addPolyline(ofPolyline line);
     void penDown();
     void penUp();
-    void initCut();
+    void initPlotter();
     void startPlot(ofPoint pt);
     void startPlot(ofVec2f pt);
     void endPlot();
