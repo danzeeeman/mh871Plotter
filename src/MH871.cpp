@@ -40,7 +40,7 @@ void MH871::addPoint(ofVec2f pt){
     cache.push_back("PA"+ofToString(x)+","+ofToString(y)+";");
 }
 void MH871::addPolyline(ofPolyline line){
-//    line = line.getResampledBySpacing(1);
+    //    line = line.getResampledBySpacing(1);
     vector<ofPoint> verts = line.getVertices();
     for(int i = 0; i < verts.size(); i++){
         if(i == 0){
@@ -51,10 +51,25 @@ void MH871::addPolyline(ofPolyline line){
     }
     endPlot();
 }
+void MH871::addPolylines(vector<ofPolyline> lines){
+    //    line = line.getResampledBySpacing(1);
+    for(int j = 0; j < lines.size(); j++){
+        vector<ofPoint> verts = lines[j].getVertices();
+        for(int i = 0; i < verts.size(); i++){
+            if(i == 0){
+                startPlot(verts[i]);
+            }else{
+                addPoint(verts[i]);
+            }
+        }
+        cache.push_back("PU;");
+    }
+    endPlot();
+}
 void MH871::endPlot(){
     cache.push_back("PU;");
     cache.push_back("PA0,0;");
-
+    
 }
 void MH871::startPlot(ofPoint pt){
     ofVec2f fooP = mapPoint(pt);
@@ -95,5 +110,5 @@ void MH871::sendCommand(string command){
     ofBuffer buf;
     buf.set(command);
     device.writeBytes(buf);
-//    device.flush();
+    //    device.flush();
 }

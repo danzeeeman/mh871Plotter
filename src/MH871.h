@@ -15,6 +15,7 @@ public:
     void addPoint(ofPoint pt);
     void addPoint(ofVec2f pt);
     void addPolyline(ofPolyline line);
+    void addPolylines(vector<ofPolyline> lines);
     void penDown();
     void penUp();
     void initPlotter();
