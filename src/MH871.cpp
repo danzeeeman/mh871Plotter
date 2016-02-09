@@ -12,7 +12,7 @@ void MH871::setup(float min, float max){
     this->min = min;
     this->max = max;
     device.setup("/dev/tty.USA19H141P1.1", 19200);
-    initCut();
+    initPlotter();
     penUp();
 }
 void MH871::update(){
